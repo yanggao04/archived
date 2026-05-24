@@ -2,4 +2,4 @@
 
 ***On MacOS***
 
-use `.zprofile` or `.zshrc`
+use `.bash_profile` or `.bashrc`

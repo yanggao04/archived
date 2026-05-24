@@ -1,6 +1,26 @@
 # Unix-like Command Cheatsheet
 
-## Linux+MacOS
+## All
+
+### Running in background:
+
+`nohup <command>`: 
+
+prevent the process from being sent a 'stop' signal on logout. However, will generate `nohup.out` file for logging
+
+`<command> &`:
+
+to close the programme: `killall <program name>`
+
+### checking the programmes running:
+
+`lsof -i`: `lsos -i :<port number>` specifies a port to inspect
+
+`ps -ef`
+
+### ssh
+
+>  see `ssh/keys.md` document
 
 ## Linux Only
 
@@ -15,6 +35,12 @@
 ### Linux
 
 ## MacOS Only
+
+### Envs
+
+fonts at `~/Library/Fonts`
+
+to get access to e-book/android devices or MTP usb transfer, need tools like `openMTP`/`calibre`
 
 ### pbcopy / pbpaste
 
@@ -56,12 +82,16 @@ Can use `|` to indicate disjunction (needs space before and after `|`)
 
 ### git
 
+config: see `~/.gitconfig`
+
 4 areas
 
 -  workspace: the files in the current home folder containing `.git` file as displayed. (any change here is "unstaged")
 -  index/staging area: the changes that are ready to commit
 -  local repository: the course of development of the repository, logging each commit and branch.
 -  remote repository: the upstream repository on the server.
+
+`git config`: check config e.g. `user.name`/`user.email`/`http.version`/`http.sslVerify`; `--global user.name/user.email` to change the name or email shown, and same for other configurations; `--list` to list
 
 `git init`: initiate a git repository in the current directory
 
@@ -158,3 +188,7 @@ Can use `|` to indicate disjunction (needs space before and after `|`)
 ​	`-a`: list all the branches
 
 ​	`--set-upstream <remote-branch>`/`--set-upstream-to <remote-branch>`: set the branch as the default upstream branch for the current branch (for future `git pull`)
+
+### curl
+
+`-k`: bypassing SSL certificate verification

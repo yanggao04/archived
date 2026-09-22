@@ -26,6 +26,58 @@ brew install python3
 choco install python3
 ```
 
+### pyenv: Multi-version Python Management
+
+```bash
+brew install pyenv
+
+# Optional: to manage virtual environment
+brew install pyenv-virtualenv
+```
+
+Get the following into `~/.zshrc`
+
+```bash
+# Pyenv configs
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"  # enable auto-activation
+
+# If pyenv-virtualenv is installed
+eval "$(pyenv virtualenv-init -)"
+```
+
+Then we can use the following
+
+```bash
+# List all python versions installed
+pyenv versions
+
+# List all python versions available for installation
+pyenv install --list
+
+# Install/uninstall a version
+pyenv install <version>
+pyenv uninstall <version>
+
+# Show current python
+pyenv which python
+
+# Can use "system" in <version> for version in the system
+# Set global default version
+pyenv global <version>
+
+# Set local default version for current directory
+pyenv local <version>
+
+# Set version for current session
+pyenv shell <version>
+
+# Show current active version
+pyenv version
+```
+
 ## Setting up virtual environment
 
 Why?
@@ -70,7 +122,12 @@ conda env list
 
 # Install packages inside env
 conda install pip
+
+# Deactivate
+conda deactivate
 ```
+
+Conda may require `conda init` to load initialization script to the bash profile or zshrc. Use `conda init` or `conda init <shell name>`
 
 ### venv management
 
@@ -93,25 +150,50 @@ rm -rf tensorflow_env  # venv
 conda env remove -n tensorflow_env  # conda
 ```
 
-## Tools
+## Tips
 
-### openpyxl
+Can use `PYTHONPATH=<directory>` to specify the directory being executed in.
 
-Library for reading and operating on `.xlsx` `.xlsm` files.
+## Libraries/Packages
 
-### scikit-learn (sklearn)
+### Reading/Writing/Exporting/Importing
 
-A machine learning library
+`openpyxl`: Library for reading and operating on `.xlsx` `.xlsm` files.
+`seaborn`: Data visualization library. Quick, stylish statistical plots
+`matplotlib`: Data visualization library. More precise control.
 
-### TensorFlow
+### Data Analysis
 
-A deep learning library
+`numpy`: data analysis library, dependency of many AI frameworks
+`pandas`: data analysis library, DataFrame structure, dealing csv/tables
+`scipy`: scientific calulation library, linear algebra, optimisation, stats
 
-### Seaborn
+### Deep Learning
 
-Data visualization library. Quick, stylish statistical plots
+`tensorflow`: A deep learning library by Google
+`torch` (PyTorch) (Popular Choice): A deep learning library by Meta
+`keras`: neural network API, can be executed on top of `tensorflow`
+`jax` & `jaxlib`: new DL framework by Google, mostly used for research
+`tensorboard`: virualise traninig curve, network structure, and embedded vectors
 
-### Matplotlib
+### Hugging Face Ecosystem
 
-Data visualization library. More precise control.
+`transformers`: pre-trained models like `BERT`, `GPT`, `LLaMA`, etc., out of box
+`datasets`: processing datasets for training
+`tokenizers`: out-of-box tokenizer
+`safetensors`: a safe storage format for tensors
+`accelerate`: accelerate training
+`huggingface_hub`: used for access to huggingface
+`trl`: stands for Transformer Reinforcement Learning. It's a post-training full-stack library.
+
+Some huggingface resources are gated, which require authentication. Install `hugginface_hub` and upload access token from [HuggingFace](https://huggingface.co) through `hf auth login`. (Some resources may require asking for access through HuggingFace website)
+
+### Others
+
+`tqdm`: progress bar, for monitoring loops and iterations
+`tqdm` by default outputting on `stderr` to distinguish from `stdout`. 
+To redirecting, can do like `for i in tqdm(range(100), file=sys.stdout)`
+`scikit-learn` (sklearn): machine learning pack
+
+
 

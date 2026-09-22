@@ -1,5 +1,0 @@
-# zshell set up
-
-***On MacOS***
-
-use `.zprofile` or `.zshrc`

@@ -1,3 +1,5 @@
+" ~/.vimrc or ~/.vim/.vimrc
+
 set number		  			" show line number
 set cursorline				" highlight cursorline
 set nocursorcolumn			" highlight cursorcolumn
@@ -35,6 +37,7 @@ set ignorecase				" case insensitive when searching
 set smartcase               " but be case seneitive when specified
 set hlsearch				" highlighting search
 set incsearch				" intime search match
+set clipboard+=unnamedplus  " yanked contents will be loaded into clipboard, need to check vim version for `+clipboard` and `+xterm_clipboard`
 
 autocmd BufWritePost $MYVIMRC source $MYVIMRC  " let vimrc auto reload when saved
 

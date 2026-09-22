@@ -8,7 +8,7 @@
 
 ## Editors
 
-please refer to the folder [editors](./ToSetThingsUp/editors)
+please refer to the folder [editors](./editors)
 
 ## LaTeX
 
@@ -30,7 +30,7 @@ Homebrew package definition that installs pre-compiled binaries built and signed
 
 possible target paths: `/opt/homebrew` or`/home/linuxbrew/.linuxbrew`
 
-`brew update`: update current brew version
+`brew update`: update current brew version. By setting `export HOMEBREW_NO_AUTO_UPDATE=1` in shell script to disable auto-updating
 
 ### Packages:
 
@@ -48,9 +48,11 @@ possible target paths: `/opt/homebrew` or`/home/linuxbrew/.linuxbrew`
 
 shown as `jordanbaird-ice` in `cask`
 
+macOS 26 Tahoe need to install [beta version from github](https://github.com/jordanbaird/Ice/releases)
+
 #### rsync
 
-[rsync in HomeBrew](https://formulae.brew.sh/formula/rsync)
+[rsync in HomeBrew](https://formulae.brew.sh/formula/rsync): tool for synchronizing and copying
 
 `brew install rsync`
 
@@ -66,6 +68,11 @@ lightweight real-time pdf viewer
 
 [github link](https://github.com/pwmt/zathura)
 
+#### fzf
+
+fuzzy find
+[github link](https://github.com/junegunn/fzf)
+
 ## Some useful apps/packages
 
 #### Raycast
@@ -74,6 +81,7 @@ powerful tool: search, shortcuts, window arrangement, etc.
 
 #### One Switch
 
+`brew install --cask one-switch`
 easy control, keep awake
 
 #### Ice
@@ -111,4 +119,44 @@ lightweight pdf/image editor: watermarks, editting, etc.
 #### OpenMTP
 
 cable transmitting files to android systems (Need to quite previews for connections)
+
+#### Shottr
+
+screenshot tool: [Website](https://shottr.cc), [Raycast extension](https://www.raycast.com/fernando_barrios/shottr)
+
+#### Atoll
+
+macos dynamic island tool: [github](https://github.com/Ebullioscopic/Atoll)
+
+#### DockDoor (Optional)
+
+macos dock window preview
+
+#### LaunchOS (Optional)
+
+get back macos startup page
+
+#### AppFlowy
+
+Offline notebook like notion
+
+#### Typora
+
+Markdown editor
+
+#### Obsidian
+
+Markdown editor + management + extensions
+
+#### Joplin
+
+Notebook, using Markdown format
+
+#### Clash (Plus)
+
+smart web proxy [cn website](https://clashcnweb.com/en/); [website](https://clashplus.io)
+
+#### Shadowsocks/Shadowrocket
+
+web proxy: [shadowrockets](https://shadowlaunch.com) (often app store); [shadowsocks](https://shadowsocks.org); [shadowsocks github](https://github.com/shadowsocks)
 

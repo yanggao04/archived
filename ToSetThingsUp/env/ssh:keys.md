@@ -4,7 +4,7 @@ This is based on assymetric cryptography. A pair of keys is generated. The publi
 
 `ssh-keygen` command will generate the public-private key pair. On MacOS, this is generated in `~/.ssh`
 
-For instance, to generate keys for github login verification, we can use `ssh-keygen -t rsa -C "name@email.com"` where `-t` indicates the type of key, here we use rsa, and `-C` indicates the comments or name of the key.
+For instance, to generate keys for github login verification, we can use `ssh-keygen -t rsa -C "name@email.com"` where `-t` indicates the type of key, here we use rsa, and `-C` indicates the comments or name of the key. `rsa` is the type of encryption. There are other options like `ed25519`.
 
 Hence it will ask for the file name and passphrase (used whenever using the key for verification):
 
@@ -38,9 +38,11 @@ For a server, we can also copy the public key and paste it in the `~/.ssh/author
 
 Hence, `ssh username@ipaddress` won't require password any more. `ssh -i id_rsa username@ipaddress` can specify which key pair to use for the connection.
 
-We can run `ssh -T username@targetserver` to test.
+We can run `ssh -T username@targetserver` to test. (`ssh -t xxx` can also test but will force a interactive session in the server)
 
 We can also use `ssh-add ~/.ssh/id_rsa` (the private key file) to add this private key to the ssh agent. There is `ssh-add --apple-use-keychain ~/.ssh/id_rsa` in Apple where `--apple-use-keychain` means storing the passphrase in the keychain as well. This will add the key to the high-speed cache of the ssh agent and may potentially increase the speed of key verification. We can start the ssh-agent service in the background `eval "$(ssh-agent -s)"`/`eval "$(ssh-agent)"` and `eval "$(ssh-agent -k)"`/`eval "$(ssh-agent -s -k)"`/`ssh-agent -k` to kill.
+
+How it works: `config` file maps configs and keychain to each host while `ssh-agent` utilize the key chain to connect to the server. `ssh-agent` manages keychains and help agent forwarding (see next section). However, `ssh-agent` relies on `ssh-add` to load the keychain to the agent and every time added, a password will be needed if existing. (one may also try `ssh-add -K` or another tool `keychain` which may be more complicated but convenient) Then, passwords won't be needed until session ends or the `ssh-agent` is killed. In comparison without a `ssh-agent`, eve rytime connecting to a server, the password is needed. If all the keychains are password-free, and agent forwarding is not needed, then `ssh-agent` is useless. 
 
 Checking the value in `$SSH_AUTH_SOCK` can tell if the ssh-agent is running: `eval "$SSH_AUTH_SOCK"`.
 
@@ -63,7 +65,7 @@ However, we can alternatively reach the same effect by using the ssh agent forwa
 
 Therefore, there should be two pairs of keys, both private keys in A and two public keys in B and C respectively.
 
-This can be done as in the last part and using the flag `-A` can use the ssh agnet forwarding: 
+This can be done as in the last part and using the flag `-A` can use the ssh agent forwarding: 
 
 ```
 HostA > ssh -A username@hostB

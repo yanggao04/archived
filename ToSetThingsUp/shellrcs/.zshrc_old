@@ -1,0 +1,103 @@
+### Basic User Configurations
+# terminal prompt
+
+    # this is yet incomplete
+    # python virtual env, however it comes to be
+    if [ -z ${VIRTUAL_ENV+x} ] # if the variable is unset
+    then
+    VENV_NOTICE=""
+    else
+    VENV_NOTICE="(py:$(basename "$VIRTUAL_ENV"))"
+    fi
+    
+
+export PS1="%F{red}%n%f@%F{green}%10>...>%M%<<%f %F{blue}%20<...<%~%<<%f %F{cyan}>%f "
+
+# autocompletion
+autoload -U compinit
+compinit
+# Default editor vim
+export EDITOR="vim"
+
+# homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# fuzzy search fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# ----------
+
+# alias to pip3 venv, which includes modules
+ alias pipv="/Users/yanggao/python3venv/bin/pip"
+ alias sourcePyVenv="source /Users/yanggao/python3venv/bin/activate"
+
+# export PATH="/usr/local/anaconda3/bin:$PATH"  # commented out by conda initialize
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/opt/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/opt/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+# Setting aliases for Sublime Text
+alias subl="open -a Sublime\ Text"
+alias SublimeText="Sublime\ Text"
+
+# Setting alias for Typora
+alias ty="open -a typora"
+
+### Using Tsinghua mirrors for homebrew (install and updates)
+# see https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/
+
+# export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
+# export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git"
+# export HOMEBREW_INSTALL_FROM_API=1
+## Homebrew Bottels Repo
+# >>> run the following once
+# echo 'export HOMEBREW_API_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api"' >> ~/.zprofile
+# echo 'export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"' >> ~/.zprofile 
+# <<< and unmark the following
+# export HOMEBREW_API_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api"
+# export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
+## Homebrew PyPI Repo
+# export HOMEBREW_PIP_INDEX_URL="https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple"
+
+################### Some homebrew environment
+ export PATH="/opt/homebrew/opt/scala@2.13/bin:$PATH"
+ export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/opt/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/opt/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+# zsh-autosuggestion plugin
+# source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# ZSH_AUTOSUGGEST_STRATEGY=(completion history match_prev_cmd)
+
+# neofetch when boot
+# neofetch
+
+# disable multithread to increase multi core efficiency
+# export OMP_NUM_THREADS=1
+
+export PATH="$HOME/.local/bin:$PATH"

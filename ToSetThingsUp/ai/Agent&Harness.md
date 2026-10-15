@@ -4,6 +4,10 @@ an app that provides uniform agent-provider-model interface
 
 https://github.com/farion1231/cc-switch
 
+## Useful Tools
+
+[Token Monitor](https://github.com/Javis603/token-monitor): monitor token usages, set tool limits, give seesion details, etc. Compatible with various agents.
+
 ## CodeX
 
 ### installation
@@ -280,6 +284,8 @@ There are also many operations.
 
 ### Userful Plugins
 
+**pi-agent-extensions** `npm:pi-agent-extensions`: pi agent beginner pack. `/sessions` to search sessions, `/workflow` to setup and manage workflows, etc. Details see https://github.com/jayshah5696/pi-agent-extensions.
+
 **ask-mode** `npm:@dreki-gg/pi-ask-mode`: using `/ask` to turn on/off read-only mode for agent or `/ask <prompt>`
 
 **caveman** `git:github.com/jonjonrankin/pi-caveman`: succinct output to cut token expenses. use `/caveman config` to set default and `/caveman` to turn on/off
@@ -288,6 +294,12 @@ There are also many operations.
 
 **extension manager** `npm:@agentoom/pi-extension-manager`: use `/extension` to view and manage extensions
 
-**rtk** `npm:pi-rtk`: auto filter to compress tool outputs in order to reduce token usage. Use `/rtk-on`/`/rtk-off` to turn on/off. There are also other settings.
+**rtk** `npm:@izhimu/pi-rtk`: auto filter tool outputs in order to reduce token usage. Use `/rtk on`/`/rtk off` to turn on/off.
 
-**tscg** `npm:pi-tscg`: compress tool definitions and tool outputs. Use `/tscg` to set
+**rtk-optimizer** `npm:pi-rtk-optimizer`: further optimize tool outputs in order to reduce token usage. Use `rtk` to open interactive session.
+
+**tscg** `npm:pi-tscg`: compress tool definitions and tool outputs. Use `/tscg` to set.
+
+**delete-session** `npm:pi-delete-session`: using `/delete-session` to activate interactive session for deleting. It supports automatically start a new session if current is deleted.
+
+**zen-mode** `npm:pi-zen-mode`: hide thinking and reasoning (not influencing token usage). `/zen` to open the panel. 

@@ -92,6 +92,10 @@ menu bar manager, see **Ice** in **HomeBrew** section
 
 paid menu bar manager, similar to **Ice**
 
+#### Thaw
+
+Same feature with **Ice**, but still maintaining: [github](https://github.com/thaw-app/Thaw)
+
 #### Scroll Reverser
 
 making mouse and trackpad scrolling compatible
@@ -99,6 +103,10 @@ making mouse and trackpad scrolling compatible
 #### Dropover
 
 desktop shelf to temporarily put files (for easy moves)
+
+#### Layby
+
+Open source alternative for dropover: [github](https://github.com/gonnabeafreeman/Layby)
 
 #### LaunchPalette (Optional)
 
@@ -148,6 +156,10 @@ Markdown editor
 
 Markdown editor + management + extensions
 
+#### MarkText
+
+Lightweight markdown editor like **typora**. Open sourced: [github](https://github.com/marktext/marktext)
+
 #### Joplin
 
 Notebook, using Markdown format
@@ -160,3 +172,22 @@ smart web proxy [cn website](https://clashcnweb.com/en/); [website](https://clas
 
 web proxy: [shadowrockets](https://shadowlaunch.com) (often app store); [shadowsocks](https://shadowsocks.org); [shadowsocks github](https://github.com/shadowsocks)
 
+#### LeftOpen
+
+Monitoring ports: [github](https://github.com/SonghaiFan/leftopen)
+
+#### Hop
+
+Small everyday tools integrated: [github](https://github.com/antonyshakirov/hop), [website](https://hop.tools)
+
+#### BetterCapture
+
+screen recorder: [github](https://github.com/jsattler/BetterCapture), [website](https://bettercapture.app)
+
+#### Bitwarden
+
+Open source alternative of **1Password** for password management: [github](https://github.com/bitwarden), [website](https://bitwarden.com)
+
+#### Stats
+
+Open source alternative of **iStat Menus** for menu bar hardware monitoring: [github](https://github.com/exelban/stats), [website](https://mac-stats.com)
